@@ -15,7 +15,8 @@ Se conecte à EC2 via protocolo SSH e em seguida execute os comandos:<br>
 >>> cd /home/seuUsuario/Desktop (Obs: "seuUsuario" é o seu user linux.)<br><br>
 Passo 05<br>
 Baixe o Puppet Collector Setup<br>
->>> wget -O PuppetCollector-setup.sh https://github.com/gustavocomartins/assistente-instalacao-puppet-collector.git<br><br>
+>>> wget -O PuppetCollector-setup.sh https://github.com/gustavocomartins/assistente-instalacao-puppet-collector.git<br>
+>>> wget -O tables.sql https://github.com/gustavocomartins/assistente-instalacao-puppet-collector.git<br><br>
 Passo 06<br>
 Entrar no diretório via terminal e executar o assistente<br>
 >>> cd assistente-instalacao-puppet-collector.git <br>
