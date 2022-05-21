@@ -1,4 +1,4 @@
-use collectorBackup;
+use puppetCollectorBackup;
 
 create table dadosColetados(
 id int primary key auto_increment,
