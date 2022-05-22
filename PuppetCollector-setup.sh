@@ -71,6 +71,8 @@ criarAdmUser(){
 	echo ">>> Criando user adm com permissao de sudo...\n"
 	sleep 2
 	sudo adduser adm
+	mkdir /home/adm/puppetSetup
+	cd /home/adm/puppetSetup
 	usermod -aG sudo adm
 	echo ">>> User adm criado com sucesso.\n"
 }
@@ -126,7 +128,6 @@ configurarContainerMySQL(){
 #INSTALANDO O PUPPET COLLECTOR
 instalarCollector(){
 	echo ">>> Instalando o Puppet Collector...\n"
-	cd /home/adm/Desktop/
 	wget -O PuppetColector.jar https://github.com/gustavocomartins/puppet-colector-exe/raw/main/Puppet%20Colector.jar
 	echo ">>> Puppet Collector instalado com sucesso.\n"
 }
