@@ -13,7 +13,7 @@ Abra o diretório no terminal e execute:<br>
 Passo 04<br>
 Se conecte à EC2 via protocolo SSH e em seguida execute os comandos:<br>
 >>> sudo su<br>
->>> cd<br>
+>>> cd<br><br>
 Passo 05<br>
 Baixe o Puppet Collector Setup e o script MySQL<br>
 >>> wget -O PuppetCollector-setup.sh https://raw.githubusercontent.com/gustavocomartins/assistente-instalacao-puppet-collector/main/PuppetCollector-setup.sh<br>
