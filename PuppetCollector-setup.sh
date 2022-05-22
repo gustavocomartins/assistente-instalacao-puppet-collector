@@ -133,15 +133,15 @@ instalarCollector(){
 }
 
 configurarTudo(){
-	configurarRoot()
-	configurarUbuntu()
-	criarAdmUser()
-	atualizarPacotes()
-	instalarGUI()
-	instalarJava()
-	instalarDocker()
-	configurarContainerMySQL()
-	instalarCollector()
+	configurarRoot
+	configurarUbuntu
+	criarAdmUser
+	atualizarPacotes
+	instalarGUI
+	instalarJava
+	instalarDocker
+	configurarContainerMySQL
+	instalarCollector
 	echo ""
 	echo "============================================================"	
 	echo "||        SUA MAQUINA FOI CONFIGURADA COM SUCESSO         ||"	
@@ -153,7 +153,7 @@ if [ \"$inst\" == \"s\" ]
 	then
 		echo \"Iniciando configuracao..."
 		sleep 2
-		configurarTudo()
+		configurarTudo
 		echo \"java instalado com sucesso\"
 	else 
 		echo \"Ok!"
