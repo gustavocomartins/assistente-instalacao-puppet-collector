@@ -89,6 +89,7 @@ instalarGUI(){
 	echo ">>> Instalando protocolo RDP e Interface grafica...\n"
 	sleep 2
 	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
+	sudo apt install rdesktop
 	echo ">>> Protocolo RDP e GUI instalados com sucesso.\n"
 }
 
