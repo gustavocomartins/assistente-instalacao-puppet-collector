@@ -99,7 +99,7 @@ instalarJava(){
 instalarDocker(){
 	echo ">>> Instalando Docker...\n"
 	sleep 1
-	sudo apt install docker.io
+	sudo apt install docker.io -y
 	sudo system start docker
 	sudo system enable docker		
 }
