@@ -108,7 +108,7 @@ instalarDocker(){
 configurarContainerMySQL(){
 	echo ">>> Instalando imagem MySQL...\n"
 	sleep 1		
-	sudo docker create -d -p 3306:3306 --name collectorBackup -e "MYSQL_DATABASE=puppetCollectorBackup" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:latest
+	sudo docker create -p 3306:3306 --name collectorBackup -e "MYSQL_DATABASE=puppetCollectorBackup" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:latest
 	sudo docker cp ./tables.sql collectorBackup:docker-entrypoint-initdb.d/tables.sql
 	sudo docker start collectorBackup
 	echo ">>> Conteiners MySQL:\n"
