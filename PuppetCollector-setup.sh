@@ -67,12 +67,11 @@ configurarUbuntu(){
 	echo ">>> Ubuntu configurado com sucesso.\n"
 }
 
-criarAdmUser(){
+criarUrubu100User(){
 	echo ">>> Criando user adm com permissao de sudo...\n"
 	sleep 2
-	sudo adduser adm
-	mkdir /home/adm/puppetSetup
-	cd /home/adm/puppetSetup
+	sudo adduser urubu100
+	mkdir /home/urubu100/setup
 	usermod -aG sudo adm
 	echo ">>> User adm criado com sucesso.\n"
 }
@@ -94,7 +93,7 @@ instalarGUI(){
 }
 
 instalarJava(){
-	sudo apt-get install openjdk-11-jdk
+	sudo apt-get install openjdk-11-jdk -y
 }
 
 instalarDocker(){
@@ -129,6 +128,7 @@ configurarContainerMySQL(){
 #INSTALANDO O PUPPET COLLECTOR
 instalarCollector(){
 	echo ">>> Instalando o Puppet Collector...\n"
+	cd /home/urubu100/setup
 	wget -O PuppetColector.jar https://github.com/gustavocomartins/puppet-colector-exe/raw/main/Puppet%20Colector.jar
 	echo ">>> Puppet Collector instalado com sucesso.\n"
 }
@@ -136,7 +136,7 @@ instalarCollector(){
 configurarTudo(){
 	configurarRoot
 	configurarUbuntu
-	criarAdmUser
+	criarUrubu100User
 	atualizarPacotes
 	instalarGUI
 	instalarJava
