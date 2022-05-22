@@ -130,6 +130,7 @@ instalarCollector(){
 	echo ">>> Instalando o Puppet Collector...\n"
 	cd /home/urubu100/setup
 	wget -O PuppetColector.jar https://github.com/gustavocomartins/puppet-colector-exe/raw/main/Puppet%20Colector.jar
+	chmod +x PuppetColector.jar
 	echo ">>> Puppet Collector instalado com sucesso.\n"
 }
 
