@@ -147,16 +147,19 @@ configurarTudo(){
 	echo "||        SUA MAQUINA FOI CONFIGURADA COM SUCESSO         ||"	
 	echo "============================================================"	
 }
-echo "Voce deseja continuar com a configuracao ?"
+echo "Voce deseja continuar com a configuracao ? (s/n)"
 read inst
-if [ \"$inst\" == \"s\" ]
+read inst
+if [ "$inst" == "s" ]
 	then
-		echo \"Iniciando configuracao..."
-		sleep 2
-		configurarTudo
-		echo \"java instalado com sucesso\"
+	echo "Iniciando configuracao..."
+	sleep 2
+	configurarTudo
 	else 
-		echo \"Ok!"
-		exit
+	if [ "$inst" == "n" ]
+	        then
+	        echo "Ok!"
+	        else
+	        echo "Parametro invalido."
+	fi
 fi
-
