@@ -149,13 +149,13 @@ configurarTudo(){
 }
 echo "Voce deseja continuar com a configuracao ? (s/n)"
 read inst
-if [ "$inst" -eq "s" ]
+if [ "$inst" == "s" ]
 	then
 	echo "Iniciando configuracao..."
 	sleep 2
 	configurarTudo
 	else 
-	if [ "$inst" -eq "n" ]
+	if [ "$inst" == "n" ]
 	        then
 	        echo "Ok!"
 	        else
