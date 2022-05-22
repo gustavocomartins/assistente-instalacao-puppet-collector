@@ -6,7 +6,9 @@ Configurando sua máquina para rodar o Puppet Collector.
 Passo 01<br>
 Crie uma EC2 com protocolos de segurança SSH e RDP na AWS.<br><br>
 Passo 02<br>
-Localmente, crie um diretório e guarde nele a chave SSH da AWS.<br><br>
+Execute localmente o comando abaixo para poder acessar a EC2 com GUI:<br>
+>>> sudo apt install rdesktop<br>
+Em seguida, crie um diretório e guarde nele a chave SSH da AWS.<br><br>
 Passo 03<br>
 Abra o diretório no terminal e execute:<br>
 >>> sudo chmod 400 "suaChaveAWS.file" (Obs: "suaChaveAWS.file" é a sua chave gerada pela AWS.)<br><br>
@@ -21,6 +23,10 @@ Baixe o Puppet Collector Setup e o script MySQL<br>
 Passo 06<br>
 Entrar no terminal e executar o assistente<br>
 >>> sudo chmod +x PuppetCollector-setup.sh <br>
->>> ./PuppetCollector-setup.sh <br>
+>>> ./PuppetCollector-setup.sh <br><br>
+Passo 07<br>
+Copie o IP publico da sua EC2 na AWS e execute o comando:<br>
+>>> rdesktop -u urubu100 -g 85% -PKD "ip_publico_ec2"<br>
+OBS: troque "ip_publico_ec2" pelo seu IP copiado.
 
 <h1>Pronto!</h1>
