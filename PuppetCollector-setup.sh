@@ -54,84 +54,105 @@ echo "$descricaoI"
 #-----------------------------------------------------------
 #CONFIGURAR USUARIOS
 configurarRoot(){
-	echo ">>> Configuracao do usuario Root...\n"
+	echo "============================================================"
+	echo "|| >>> Configurando usuario ROOT                          ||"
+	echo "============================================================"
 	sleep 2
 	sudo passwd root
-	echo ">>> Ubuntu configurado com sucesso.\n"
+	echo ">>> Ubuntu configurado com sucesso."
 }
 
 configurarUbuntu(){
-	echo ">>> Configuracao do usuario ubuntu...\n"
+	echo "============================================================"
+	echo "|| >>> Configurando usuario Ubuntu                         ||"
+	echo "============================================================"
 	sleep 2
 	sudo passwd ubuntu
-	echo ">>> Ubuntu configurado com sucesso.\n"
+	echo ">>> Ubuntu configurado com sucesso."
 }
 
 criarUrubu100User(){
-	echo ">>> Criando user adm com permissao de sudo...\n"
+	echo "============================================================"
+	echo "|| >>> Criando usuario Urubu100                           ||"
+	echo "============================================================"
 	sleep 2
 	sudo adduser urubu100
 	mkdir /home/urubu100/setup
 	usermod -aG sudo adm
-	echo ">>> User adm criado com sucesso.\n"
+	echo ">>> User adm criado com sucesso."
 }
 #-----------------------------------------------------------
 #INSTALACOES
 atualizarPacotes(){
-	echo ">>> Atualizando os pacotes...\n"
+	echo "============================================================"
+	echo "|| >>> Atualizando pacotes...                             ||"
+	echo "============================================================"
 	sleep 2
 	sudo apt update && sudo  apt upgrade -y
-	echo ">>> Pacotes atualizados com sucesso.\n"
+	echo ">>> Pacotes atualizados com sucesso."
 }
 
 instalarGUI(){
-	echo ">>> Instalando protocolo RDP e Interface grafica...\n"
+	echo "============================================================"
+	echo "|| >>> Instalando RDP e RDESKTOP (Interface Grafica)      ||"
+	echo "============================================================"
 	sleep 2
 	sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 	sudo apt install rdesktop
-	echo ">>> Protocolo RDP e GUI instalados com sucesso.\n"
+	echo ">>> Protocolo RDP e RDesktop instalados com sucesso.\n"
 }
 
 instalarJava(){
+	echo "============================================================"
+	echo "|| >>> Instalando JAVA...                                 ||"
+	echo "============================================================"
+	sleep 2
 	sudo apt-get install openjdk-11-jdk -y
 }
 
 instalarDocker(){
-	echo ">>> Instalando Docker...\n"
+	echo "============================================================"
+	echo "|| >>> Instalando e ativando Docker...                    ||"
+	echo "============================================================"
 	sleep 1
 	sudo apt install docker.io -y
-	sudo system start docker
-	sudo system enable docker		
+	sudo systemctl start docker
+	sudo systemctl enable docker		
 }
 #-----------------------------------------------------------
 #DOCKER E CONTAINER MYSQL
 configurarContainerMySQL(){
-	echo ">>> Instalando imagem MySQL...\n"
-	sleep 1		
+	echo "============================================================"
+	echo "|| >>> Instalando imagem MySQL e criando database local...||"
+	echo "============================================================"
+	sleep 1
+	sudo docker pull mysql:latest		
 	sudo docker create -p 3306:3306 --name collectorBackup -e "MYSQL_DATABASE=puppetCollectorBackup" -e "MYSQL_ROOT_PASSWORD=urubu100" mysql:latest
 	sudo docker cp ./tables.sql collectorBackup:docker-entrypoint-initdb.d/tables.sql
 	sudo docker start collectorBackup
-	echo ">>> Conteiners MySQL:\n"
+	echo ">>> Conteiners MySQL:"
 	echo "-------------------------------------------------"
 	sudo docker images
 	echo "-------------------------------------------------\n"
-	echo "\n---------------------------------"
-	echo "CONTEINER: collectorBackup       ||"
-	echo "DATABASE:  puppetCollectorBackup ||"
-	echo "SENHA:     urubu100              ||"
-	echo "-----------------------------------"
-	echo "\n>>>Guarde a senha do conteiner."
+	echo "======================================"
+	echo "|| CONTEINER: collectorBackup       ||"
+	echo "|| DATABASE:  puppetCollectorBackup ||"
+	echo "|| SENHA:     urubu100              ||"
+	echo "======================================"
+	echo "Guarde a senha do conteiner."
 	sleep 5	
 }
 
 #-----------------------------------------------------------
 #INSTALANDO O PUPPET COLLECTOR
 instalarCollector(){
-	echo ">>> Instalando o Puppet Collector...\n"
+	echo "============================================================"
+	echo "|| >>> Instalando Puppet Collector                        ||"
+	echo "============================================================"
 	cd /home/urubu100/setup
 	wget -O PuppetColector.jar https://github.com/gustavocomartins/puppet-colector-exe/raw/main/Puppet%20Colector.jar
 	chmod +x PuppetColector.jar
-	echo ">>> Puppet Collector instalado com sucesso.\n"
+	echo ">>> Puppet Collector instalado com sucesso."
 }
 
 configurarTudo(){
