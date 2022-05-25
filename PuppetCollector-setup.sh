@@ -150,7 +150,7 @@ instalarCollector(){
 	echo "|| >>> Instalando Puppet Collector                        ||"
 	echo "============================================================"
 	cd /home/urubu100/setup
-	wget -O PuppetCollector.jar https://github.com/gustavocomartins/puppet-collector-exe/raw/main/Puppet%20Collector.jar
+	wget -O PuppetCollector.jar https://github.com/gustavocomartins/puppet-collector-exe/raw/main/PuppetCollector.jar
 	chmod +x PuppetCollector.jar
 	echo ">>> Puppet Collector instalado com sucesso."
 }
